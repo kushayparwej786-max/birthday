@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Mini Game ❤️</title>
+
+    <link rel="stylesheet" href="game.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Floating Hearts -->
+    <div id="floating-hearts"></div>
+
+    <!-- Floating Balloons -->
+    <div id="floating-balloons"></div>
+
+    <!-- Sparkles -->
+    <div id="sparkles"></div>
+
+    <!-- Top Bar -->
+
+    <div class="top-bar">
+
+        <div class="score-box">
+
+            ❤️ Score :
+            <span id="score">
+                0
+            </span>
+            /5
+
+        </div>
+
+        <div class="timer-box">
+
+            ⏳
+            <span id="timer">
+                30
+            </span>s
+
+        </div>
+
+    </div>
+
+    <!-- Main Container -->
+
+    <div class="container">
+
+        <h1>
+
+            🎮 Catch 5 Hearts ❤️
+
+        </h1>
+
+        <p>
+
+            Catch 5 hearts to unlock your birthday cake 🎂
+
+        </p>
+
+        <!-- Game Area -->
+
+        <div id="gameArea">
+
+            <!-- Falling Hearts -->
+            <div id="heartContainer"></div>
+
+            <!-- Teddy -->
+
+            <div id="player">
+
+                🧸
+
+            </div>
+
+        </div>
+
+        <!-- Win Message -->
+
+        <div id="winBox">
+
+            <h2>
+
+                🎉 You Did It ❤️
+
+            </h2>
+
+            <p>
+
+                Your Birthday Cake Is Ready 🎂
+
+            </p>
+
+            <button id="nextBtn">
+
+                Continue 🎂
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="game.js"></script>
+
+</body>
+
+</html>

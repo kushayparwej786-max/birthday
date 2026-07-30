@@ -1,0 +1,658 @@
+/* =========================
+   Reset
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9ecb,#ffc6df,#ffe8f2);
+    position:relative;
+}
+
+/* =========================
+   Background Glow
+========================= */
+
+body::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    background:rgba(255,255,255,.15);
+    border-radius:50%;
+    top:-220px;
+    left:-180px;
+    filter:blur(60px);
+}
+
+body::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
+    right:-150px;
+    bottom:-180px;
+    filter:blur(60px);
+}
+
+/* =========================
+   Floating Containers
+========================= */
+
+#floating-hearts,
+#floating-balloons,
+#sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+/* =========================
+   Hearts
+========================= */
+
+.heart-float{
+
+    position:absolute;
+
+    bottom:-60px;
+
+    animation:heartFloat linear forwards;
+
+    opacity:.9;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:translateY(0) scale(.5);
+
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh) scale(1.3);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+   Balloons
+========================= */
+
+.balloon{
+
+    position:absolute;
+
+    bottom:-140px;
+
+    width:45px;
+
+    height:60px;
+
+    border-radius:50% 50% 45% 45%;
+
+    animation:balloonFloat linear forwards;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+.balloon::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:2px;
+
+    height:60px;
+
+    background:#ffffff;
+
+    left:50%;
+
+    top:58px;
+
+}
+
+.balloon.red{
+
+    background:#ff4d7d;
+
+}
+
+.balloon.pink{
+
+    background:#ff82b8;
+
+}
+
+.balloon.white{
+
+    background:#ffffff;
+
+}
+
+@keyframes balloonFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-60vh) translateX(20px);
+
+    }
+
+    100%{
+
+        transform:translateY(-125vh) translateX(-20px);
+
+    }
+
+}
+
+/* =========================
+   Sparkles
+========================= */
+
+.sparkle{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    background:#fff;
+
+    border-radius:50%;
+
+    animation:sparkle 2.5s infinite;
+
+}
+
+@keyframes sparkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+        transform:scale(.5);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/* =========================
+   Main Container
+========================= */
+
+.container{
+
+    position:relative;
+
+    z-index:5;
+
+    text-align:center;
+
+    color:#fff;
+
+    width:100%;
+
+    max-width:900px;
+
+    padding:20px;
+
+}
+
+.container h1{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.2);
+
+}
+
+.subtitle{
+
+    font-size:18px;
+
+    margin-bottom:40px;
+
+    color:#fff;
+
+}
+
+/* =========================
+   Envelope Base
+========================= */
+
+.envelope{
+
+    position:relative;
+
+    width:320px;
+
+    height:220px;
+
+    margin:auto;
+
+    cursor:pointer;
+
+    transition:.5s ease;
+
+    filter:drop-shadow(0 25px 35px rgba(0,0,0,.25));
+
+}
+
+.envelope:hover{
+
+    transform:translateY(-10px) scale(1.03);
+
+}
+
+.back{
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:14px;
+
+    background:linear-gradient(145deg,#ff77ae,#ff4b91);
+
+}
+
+.letter-paper{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    width:86%;
+
+    height:180px;
+
+    background:#fffdfd;
+
+    border-radius:10px;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+    z-index:1;
+
+}
+
+.paper-content{
+
+    padding:25px;
+
+}
+
+.paper-content h2{
+
+    color:#ff4b91;
+
+    margin-bottom:12px;
+
+}
+
+.paper-content p{
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+}
+/* =========================
+   Envelope Folds
+========================= */
+
+.left-fold,
+.right-fold,
+.bottom-fold,
+.top-fold{
+    position:absolute;
+    z-index:3;
+}
+
+/* Left Fold */
+
+.left-fold{
+    left:0;
+    bottom:0;
+    width:50%;
+    height:100%;
+    background:#ff5f9e;
+    clip-path:polygon(0 0,100% 50%,0 100%);
+}
+
+/* Right Fold */
+
+.right-fold{
+    right:0;
+    bottom:0;
+    width:50%;
+    height:100%;
+    background:#ff6ca8;
+    clip-path:polygon(100% 0,0 50%,100% 100%);
+}
+
+/* Bottom Fold */
+
+.bottom-fold{
+    left:0;
+    bottom:0;
+    width:100%;
+    height:60%;
+    background:#ff77ae;
+    clip-path:polygon(0 100%,50% 35%,100% 100%);
+}
+
+/* Top Flap */
+
+.top-fold{
+    top:0;
+    left:0;
+    width:100%;
+    height:55%;
+    background:#ff4d94;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    transform-origin:top;
+    transition:1s ease;
+    z-index:6;
+}
+
+/* Open Animation */
+
+.envelope.open .top-fold{
+    transform:rotateX(180deg);
+}
+
+/* =========================
+   Heart Seal
+========================= */
+
+.seal{
+
+    position:absolute;
+
+    top:42%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:26px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+
+    z-index:8;
+
+    transition:.6s;
+
+}
+
+.envelope:hover .seal{
+
+    transform:translate(-50%,-50%) scale(1.08);
+
+}
+
+/* =========================
+   Letter Slide
+========================= */
+
+.envelope.open .letter-paper{
+
+    animation:slideLetter 1.1s forwards;
+
+}
+
+@keyframes slideLetter{
+
+    0%{
+
+        transform:translateX(-50%) translateY(0);
+
+    }
+
+    100%{
+
+        transform:translateX(-50%) translateY(-170px);
+
+    }
+
+}
+
+/* =========================
+   Final Letter Card
+========================= */
+
+.letter{
+
+    display:none;
+
+    max-width:760px;
+
+    width: 90%;
+
+    margin:60px auto 0;
+
+    background:rgba(255,255,255,.97);
+
+    color:#444;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    text-align:left;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
+
+    animation:letterFade .8s ease;
+
+    max-height: 75vh;
+    overflow-y: auto;
+
+}
+
+@keyframes letterFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+.letter h2{
+
+    color:#ff4d94;
+
+    margin-bottom:20px;
+
+    font-size:30px;
+
+}
+
+.letter p{
+
+    font-size:18px;
+
+    color:#555;
+
+    line-height:1.9;
+
+    min-height:220px;
+
+}
+
+/* =========================
+   Button
+========================= */
+
+#nextBtn{
+
+    display:none;
+
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff4d94,#ff77ae);
+
+    color:#fff;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:0 12px 25px rgba(255,77,148,.35);
+
+}
+
+#nextBtn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 35px rgba(255,77,148,.45);
+
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:768px){
+
+    .container h1{
+
+        font-size:30px;
+
+    }
+
+    .subtitle{
+
+        font-size:16px;
+
+    }
+
+    .envelope{
+
+        width:260px;
+
+        height:180px;
+
+    }
+
+    .letter-paper{
+
+        height:145px;
+
+    }
+
+    .letter{
+
+        padding:25px;
+
+        margin-top:40px;
+
+    }
+
+    .letter h2{
+
+        font-size:24px;
+
+    }
+
+    .letter p{
+
+        font-size:16px;
+
+        line-height:1.8;
+
+    }
+
+}

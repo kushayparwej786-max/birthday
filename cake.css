@@ -1,0 +1,695 @@
+/* =========================
+   Reset
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    min-height:100vh;
+    overflow-x:hidden;
+     overflow-y:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    background:linear-gradient(135deg,#ffb6d9,#ffd9eb,#fff3f8);
+
+    position:relative;
+
+}
+
+/* =========================
+   Background Containers
+========================= */
+
+#floating-hearts,
+#floating-balloons,
+#sparkles,
+#confetti{
+
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+
+}
+
+/* =========================
+   Container
+========================= */
+
+.container{
+
+    width:100%;
+    max-width:900px;
+
+    text-align:center;
+        
+    padding:40px 20px 80px;
+
+    margin:auto;
+    
+    z-index:5;
+
+}
+
+.container h1{
+
+    color:#fff;
+    font-size:52px;
+
+    text-shadow:0 4px 15px rgba(0,0,0,.18);
+
+    margin-bottom:10px;
+
+}
+
+.container p{
+
+    color:#fff;
+    font-size:20px;
+
+    margin-bottom:35px;
+
+}
+
+/* =========================
+   Cake
+========================= */
+
+#cake{
+
+    position:relative;
+
+    width:320px;
+
+    margin:auto;
+
+    margin-top:30px;
+
+}
+
+/* =========================
+   Candles
+========================= */
+
+.candles{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    width:170px;
+
+    margin:auto;
+
+    position:relative;
+
+    top:18px;
+
+    z-index:50;
+
+}
+
+.candle{
+
+    width:12px;
+
+    height:65px;
+
+    background:#ffffff;
+
+    border-radius:8px;
+
+    position:relative;
+
+}
+
+.flame{
+
+    position:absolute;
+
+    top:-18px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:14px;
+
+    height:22px;
+
+    background:gold;
+
+    border-radius:50% 50% 50% 50%;
+
+    box-shadow:
+
+    0 0 20px gold,
+
+    0 0 40px orange;
+
+    animation:flicker .25s infinite alternate;
+
+}
+
+@keyframes flicker{
+
+    from{
+
+        transform:translateX(-50%) scale(1);
+
+    }
+
+    to{
+
+        transform:translateX(-50%) scale(.82);
+
+    }
+
+}
+
+/* =========================
+   Cake Layers
+========================= */
+
+.layer{
+
+    position:relative;
+
+    margin:auto;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 15px 25px rgba(0,0,0,.18);
+
+}
+
+.top{
+
+    width:180px;
+
+    height:70px;
+
+    background:#ff82b8;
+
+}
+
+.middle{
+
+    width:240px;
+
+    height:80px;
+
+    background:#ff69a9;
+
+    margin-top:6px;
+
+}
+
+.bottom{
+
+    width:300px;
+
+    height:90px;
+
+    background:#ff4f97;
+
+    margin-top:6px;
+
+}
+
+/* =========================
+   Icing
+========================= */
+
+.icing{
+
+    position:absolute;
+
+    top:0;
+
+    width:100%;
+
+    height:20px;
+
+    background:#fff;
+
+    border-radius:0 0 20px 20px;
+
+}
+
+/* =========================
+   Plate
+========================= */
+
+.plate{
+
+    width:360px;
+
+    height:18px;
+
+    margin:auto;
+
+    margin-top:10px;
+
+    background:#ffffff;
+
+    border-radius:50px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.18);
+
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.buttons{
+
+    margin-top:45px;
+
+}
+
+button{
+
+    border:none;
+
+    padding:15px 32px;
+
+    margin:10px;
+
+    border-radius:40px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:#ff4f97;
+
+    transition:.3s;
+
+    box-shadow:0 12px 25px rgba(255,79,151,.35);
+
+}
+
+button:hover{
+
+    transform:translateY(-4px);
+
+}
+
+button:disabled{
+
+    background:#bbb;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+}
+
+/* =========================
+   Hidden Message
+========================= */
+
+#message{
+
+    display:none;
+
+    width:90%;
+
+    max-width:650px;
+
+    margin:35px auto 0;
+
+    padding:30px;
+
+    background:rgba(255,255,255,.95);
+
+    border-radius:25px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+#message h2{
+
+    color:#ff4f97;
+
+    margin-bottom:15px;
+
+}
+
+#message p{
+
+    color:#555;
+
+    line-height:1.8;
+
+}
+/* =========================
+   Floating Hearts ❤️
+========================= */
+
+.heart-float{
+
+    position:absolute;
+    bottom:-60px;
+    opacity:.9;
+    animation:heartFloat linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+    0%{
+
+        transform:translateY(0) scale(.5);
+        opacity:0;
+
+    }
+
+    20%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform:translateY(-120vh) scale(1.4);
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+   Floating Balloons 🎈
+========================= */
+
+.balloon{
+
+    position:absolute;
+    bottom:-120px;
+
+    width:45px;
+    height:60px;
+
+    border-radius:50%;
+
+    animation:balloonFloat linear forwards;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.18);
+
+}
+
+.balloon::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:58px;
+
+    width:2px;
+
+    height:65px;
+
+    background:#fff;
+
+    transform:translateX(-50%);
+
+}
+
+.balloon.red{
+
+    background:#ff4f97;
+
+}
+
+.balloon.pink{
+
+    background:#ff9cc9;
+
+}
+
+.balloon.white{
+
+    background:#fff;
+
+}
+
+@keyframes balloonFloat{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-125vh);
+
+    }
+
+}
+
+/* =========================
+   Sparkles ✨
+========================= */
+
+.sparkle{
+
+    position:absolute;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    animation:sparkle 2.5s infinite;
+
+}
+
+@keyframes sparkle{
+
+    0%,100%{
+
+        opacity:.2;
+
+        transform:scale(.5);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.8);
+
+    }
+
+}
+
+/* =========================
+   Confetti 🎉
+========================= */
+
+.confetti{
+
+    position:absolute;
+
+    width:10px;
+
+    height:18px;
+
+    border-radius:3px;
+
+    animation:confettiFall linear forwards;
+
+}
+
+@keyframes confettiFall{
+
+    from{
+
+        transform:translateY(-40px) rotate(0deg);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(110vh) rotate(720deg);
+
+        opacity:0;
+
+    }
+
+}
+
+/* =========================
+   Cake Cut Animation 🍰
+========================= */
+
+#cake.cut{
+
+    animation:cakeCut .8s ease forwards;
+
+}
+
+@keyframes cakeCut{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    30%{
+
+        transform:rotate(-2deg);
+
+    }
+
+    60%{
+
+        transform:rotate(2deg);
+
+    }
+
+    100%{
+
+        transform:scale(.96);
+
+    }
+
+}
+
+/* =========================
+   Flame Off 🔥
+========================= */
+
+.flame.off{
+
+    opacity:0;
+
+    transform:translateX(-50%) scale(0);
+
+    transition:.4s;
+
+}
+
+/* =========================
+   Message Show
+========================= */
+
+#message.show{
+
+    display:block;
+
+    animation:popup .6s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media(max-width:768px){
+
+    .container h1{
+
+        font-size:38px;
+
+    }
+
+    .container p{
+
+        font-size:17px;
+
+    }
+
+    #cake{
+
+        transform:scale(.85);
+
+    }
+
+    button{
+
+        width:90%;
+
+        max-width:280px;
+
+    }
+
+}
+
+@media(max-width:480px){
+
+    #cake{
+
+        transform:scale(.72);
+
+    }
+
+    .container h1{
+
+        font-size:30px;
+
+    }
+
+    .container p{
+
+        font-size:15px;
+
+    }
+
+    #message{
+
+        padding:20px;
+
+    }
+
+}
